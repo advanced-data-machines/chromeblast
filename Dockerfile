@@ -12,8 +12,8 @@ RUN tar -xvf grpcurl_1.7.0_linux_x86_64.tar.gz
 ADD google/ /app/google
 
 
-COPY get_tokens.py .
-COPY run.sh .
+COPY scripts/get_tokens.py .
+COPY scripts/run.sh .
 
 RUN pip3.8 install gpsoauth
 

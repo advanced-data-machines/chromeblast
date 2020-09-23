@@ -22,5 +22,4 @@ echo "Access_Token = ${ACCESS_TOKEN}"
 # curl http://10.80.4.35:8008/setup/eureka_info
 # curl http://10.80.4.35:8008/setup/supported_timezones
 # curl http://10.80.4.35:8008/setup/supported_locales
-
-
+# curl -H "cast-local-authorization-token: LOCAL_AUTH_TOKEN" --verbose --insecure https://10.80.4.35:8008/setup/bluetooth/status
