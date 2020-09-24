@@ -1,5 +1,7 @@
 # chromeblast
 
+Chromeblast is an attempt to implement a batch provisioning system for the ChromeCast system much of this is predicated on the excellent work of rithvikvibhu located here 
+https://rithvikvibhu.github.io/GHLocalApi/#section/Google-Home-Local-API as there appears to be no support documentation from Google as to how best to accomplish.
 
 ## Setting up chromeblast application stack
 1. First docker must be [installed](https://docs.docker.com/engine/install/ubuntu)
@@ -28,24 +30,22 @@
 
 4. Build and run the container
     ```
-    docker build -t chromeblast .
+    ./chromeblast.sh <username> <paassword> <service_account_name>
     ```
 
-    ```    
-    docker-compose up -d
-    ```
-
-This will launch the containers on localhost.  The UI will be available at http://localhost:8080 and the api will be available at http://localhost:8880
-
-
-### Submit text to the telepropter vi RESTFul json 
+### Submit json 
 
 e.g.
 
 ```
-curl -d '{ "Text" : "hello how are you today" }' -H 'Content-Type: application/json' -X POST http://localhost:5000/api/v1/display/create -i
+curl http://10.80.4.35:8008/setup/eureka_info
+curl http://10.80.4.35:8008/setup/supported_timezones
+curl http://10.80.4.35:8008/setup/supported_locales
 ```
 
+```
+curl -H "cast-local-authorization-token: LOCAL_AUTH_TOKEN" --verbose --insecure https://10.80.4.35:8008/setup/bluetooth/status
+```
 
 
 
@@ -62,9 +62,9 @@ curl -d '{ "Text" : "hello how are you today" }' -H 'Content-Type: application/j
     docker stop <container_id>
     ``` 
 
-* shut down the stack
+* remove the docker image
     ```
-    docker-compose down
+    docker rmi <image_id>
     ``` 
 
 * clean up docker images
