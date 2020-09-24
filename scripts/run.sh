@@ -34,7 +34,7 @@ echo
 echo "******************************************************"
 echo "Example GET request with localAuthToken (fails)"
 echo "******************************************************"
-echo "curl -H 'cast-local-authorization-token: REPLACE_WITH_LOCAL_AUTH_TOKEN' --verbose --insecure https://<ip_of_chromecast>:8008/setup/bluetooth/status"
+echo "curl -H 'cast-local-authorization-token: REPLACE_WITH_LOCAL_AUTH_TOKEN' --verbose --insecure https://<ip_of_chromecast>:8443/setup/bluetooth/status"
 echo 
 echo
 echo
