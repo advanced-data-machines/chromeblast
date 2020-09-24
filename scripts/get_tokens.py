@@ -79,9 +79,11 @@ if len(sys.argv) - 1 < 2:
 
 USERNAME = sys.argv[1]
 PASSWORD = sys.argv[2]
+USERNAME2 = sys.argv[3]
 
 print("username={}",USERNAME)
 print("password={}",PASSWORD)
+print("serviceuser={}",USERNAME2)
 
 if not device_id:
     device_id = _get_android_id()
