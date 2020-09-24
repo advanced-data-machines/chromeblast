@@ -14,8 +14,10 @@ ACCESS_TOKEN=$(cat /tmp/access_token)
   -import-path ./ \
   -proto ./google/internal/home/foyer/v1.proto \
   googlehomefoyer-pa.googleapis.com:443 \
-  google.internal.home.foyer.v1.StructuresService/GetHomeGraph
-  | jq '.home.devices[] | {deviceName, localAuthToken}'
+  google.internal.home.foyer.v1.StructuresService/GetHomeGraph \
+  | grep localAuthToken
+
+#  | jq '.home.devices[] | {deviceName, localAuthToken}'
 
 echo "Access_Token = ${ACCESS_TOKEN}"
 
