@@ -88,6 +88,7 @@ print("serviceuser={}",USERNAME2)
 if not device_id:
     device_id = _get_android_id()
 
+print("device_id={}",device_id)
 
 print('''
 This script generates tokens that can be used when making requests to the Google Home Foyer API.
