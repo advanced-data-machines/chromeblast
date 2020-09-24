@@ -9,7 +9,8 @@ python3 get_tokens.py $username $password $service_username | grep "Access token
 
 ACCESS_TOKEN=$(cat /tmp/access_token)
 
-
+echo
+echo
 ./grpcurl -H "authorization: Bearer ${ACCESS_TOKEN}" \
   -import-path ./ \
   -proto ./google/internal/home/foyer/v1.proto \
@@ -18,7 +19,7 @@ ACCESS_TOKEN=$(cat /tmp/access_token)
   | grep localAuthToken
 
 #  | jq '.home.devices[] | {deviceName, localAuthToken}'
-
+echo
 echo "Access_Token = ${ACCESS_TOKEN}"
 
 echo  
@@ -26,4 +27,6 @@ echo "curl http://10.80.4.35:8008/setup/eureka_info"
 echo "curl http://10.80.4.35:8008/setup/supported_timezones"
 echo "curl http://10.80.4.35:8008/setup/supported_locales"
 echo 
-echo "curl -H 'cast-local-authorization-token: LOCAL_AUTH_TOKEN' --verbose --insecure https://10.80.4.35:8008/setup/bluetooth/status"
+echo "curl -H 'cast-local-authorization-token: REPLACE_WITH_LOCAL_AUTH_TOKEN' --verbose --insecure https://10.80.4.35:8008/setup/bluetooth/status"
+echo
+echo
