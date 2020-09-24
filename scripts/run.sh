@@ -10,7 +10,9 @@ python3 get_tokens.py $username $password $service_username | grep "Access token
 ACCESS_TOKEN=$(cat /tmp/access_token)
 
 echo
+echo "Access_Token = ${ACCESS_TOKEN}"
 echo
+echo "localAuthToken should be here: "
 ./grpcurl -H "authorization: Bearer ${ACCESS_TOKEN}" \
   -import-path ./ \
   -proto ./google/internal/home/foyer/v1.proto \
@@ -19,8 +21,6 @@ echo
   | grep localAuthToken
 
 #  | jq '.home.devices[] | {deviceName, localAuthToken}'
-echo
-echo "Access_Token = ${ACCESS_TOKEN}"
 
 echo  
 echo "curl http://10.80.4.35:8008/setup/eureka_info"
