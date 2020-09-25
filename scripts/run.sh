@@ -23,9 +23,9 @@ echo "localAuthToken = "
 #  | jq '.home.devices[] | {deviceName, localAuthToken}'
 echo  
 echo "If above is empty then likely your device is not yet registered with Google home foyer, etc."
-
+echo
 echo "******************************************************"
-echo "These api calls with work with out a localAuthToken"
+echo "These api calls work without a localAuthToken"
 echo "******************************************************"
 echo "curl http://<ip_of_chromecast>:8008/setup/eureka_info"
 echo "curl http://<ip_of_chromecast>:8008/setup/supported_timezones"
@@ -36,5 +36,4 @@ echo "Example GET request with localAuthToken (fails)"
 echo "******************************************************"
 echo "curl -H 'cast-local-authorization-token: REPLACE_WITH_LOCAL_AUTH_TOKEN' --verbose --insecure https://<ip_of_chromecast>:8443/setup/bluetooth/status"
 echo 
-echo
-echo
+echo "you've hit a brick wall (again)"
